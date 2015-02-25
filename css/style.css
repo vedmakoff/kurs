@@ -12,30 +12,36 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* styles */
 .header {
-    width: 100%;
+    width: 800px;
+    margin: 0 auto;
     background: #cc3300;
     color: white;
     font: Arial;
     font-weight: bold;
     font-size: 3em;
     text-align: center;
-    padding: 10px;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-.navi {
+.wrap {
+    width: 800px; 
+    margin: 0 auto;
+}
+.menu {
    width: 200px;
    float: left;
-   padding: 20px;
+   padding: 10px;
    background: #ff6633;
+   margin-right: 20px;
 }
 .content {
-   position: absolute;
+   position: static;
    left: 240px;
    padding: 20px;
 }
 .bottom {
-    position: fixed;
-    width: 100%;
+    width: 800px;
+    margin: 0 auto;
     bottom: 1px;
     background: #cc3300;
     color: white;
@@ -44,12 +50,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     text-align: right;
     padding-bottom: 5px;
     padding-top: 5px;
-    margin-right: 5px;
 }
-.navi p {
+.menu p {
     margin-bottom: 10px;
 }
-.navi a {
+.menu a {
     background: no-repeat 0 0;
     background-image: url(../images/biggrin.gif);
     padding-left: 24px;
