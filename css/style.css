@@ -1,0 +1,20 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18.02.2015, 20:57:30
+    Author     : pmi-php06
+*/
+
+h1 {
+    font: Arial;
+    font-size: 42px;
+}
+
+li:first-child a{
+    font-style: italic;
+    color: red;
+    background-color: white
+}
