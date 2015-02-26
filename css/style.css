@@ -12,8 +12,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* styles */
 .header {
-    width: 800px;
-    margin: 0 auto;
     background: #cc3300;
     color: white;
     font: Arial;
@@ -41,8 +39,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
    margin-left: 170px;
 }
 .bottom {
-    width: 800px;
-    margin: 0 auto;
     bottom: 1px;
     background: #cc3300;
     color: white;
