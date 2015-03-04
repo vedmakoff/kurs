@@ -33,10 +33,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
    margin-right: 20px;
 }
 .content {
-   position: static;
-   left: 170px;
    padding: 20px;
    margin-left: 170px;
+   min-height: 200px;
 }
 .bottom {
     bottom: 1px;
