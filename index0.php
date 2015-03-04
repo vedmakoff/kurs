@@ -83,9 +83,9 @@ and open the template in the editor.
         }
          echo '<br>';
         $flag=FALSE;
-        $k=2;
+        $k=3;
         foreach ($names as $key => $value) {
-            if (strcmp($key, "Иванов")==0)
+            if (strcmp($key, "Петров")==0)
             {
                 $flag=TRUE;
                 if ($flag && $k>0)
@@ -95,8 +95,7 @@ and open the template in the editor.
                 }
             }
         }
-        
-        
+               
         foreach ($m as $number => $value)
         {
             echo "$value $number<br>";
