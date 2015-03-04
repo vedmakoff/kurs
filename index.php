@@ -10,7 +10,7 @@ echo '<!DOCTYPE html>';
 echo '<html>';
 echo '<head>';
 echo '<meta charset="UTF-8">';
-echo '<title>Мама вышли денег</title>';
+echo '<title>Hello it\'s php!</title>';
 echo '</head>';
 echo '<body>';
 echo '<b>';
