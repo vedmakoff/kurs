@@ -95,7 +95,7 @@ and open the template in the editor.
                 }
             }
         }
-               
+//        по идее должен выводить несколько фамилий       
         foreach ($m as $number => $value)
         {
             echo "$value $number<br>";
