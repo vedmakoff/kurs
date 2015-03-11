@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><? 
+<title>
+    <? 
        include ("title.php");
-   ?> </title>
+   ?> 
+</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -21,12 +23,12 @@
                 ?>
             </div>
             <div class="content">
-                <form>
-                    <p><label>ФИО: </label><input type="text" /></p>
-                    <p><label>Логин: </label><input type="text" /></p>
-                    <p><label>Пароль: </label><input type="password" /></p>
-                    <p><label>E-mail: </label><input type="text" /></p>
-                    <p><label>Аватар: </label><input type="file" /></p>
+                <form action="sign_handler.php" method="GET">
+                    <p><label>ФИО: </label><input type="text" name="name"/></p>
+                    <p><label>Логин: </label><input type="text" name="login"/></p>
+                    <p><label>Пароль: </label><input type="password" name="pass"/></p>
+                    <p><label>E-mail: </label><input type="text" name="email"/></p>
+                    <p><label>Аватар: </label><input type="file" name="file"/></p>
                     <p><input type="submit" value="Отправить"/></p>
                 </form>
             </div>
