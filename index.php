@@ -29,5 +29,8 @@
             ?>
         </div>
     </div>
+    <? 
+        phpinfo();
+    ?>
 </body>
 </html>
