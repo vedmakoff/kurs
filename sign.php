@@ -19,8 +19,14 @@
                 ?>
             </div>
             <div class="content">
-                <img src="images/person-faye.jpg" width="200"/>
-                <a href="write.php">Написать администратору</a>
+                <form>
+                    <p><label>ФИО: </label><input type="text" /></p>
+                    <p><label>Логин: </label><input type="text" /></p>
+                    <p><label>Пароль: </label><input type="password" /></p>
+                    <p><label>E-mail: </label><input type="text" /></p>
+                    <p><label>Аватар: </label><input type="file" /></p>
+                    <p><input type="submit" value="Отправить"/></p>
+                </form>
             </div>
 
         <div class="bottom" >

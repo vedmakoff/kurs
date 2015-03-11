@@ -83,7 +83,7 @@ and open the template in the editor.
         }
          echo '<br>';
         $flag=FALSE;
-        $k=3;
+        $k=2;
         foreach ($names as $key => $value) {
             if (strcmp($key, "Петров")==0)
             {
@@ -96,10 +96,7 @@ and open the template in the editor.
             }
         }
 //        по идее должен выводить несколько фамилий       
-        foreach ($m as $number => $value)
-        {
-            echo "$value $number<br>";
-        }
+        
         ?>
     </body>
 </html>

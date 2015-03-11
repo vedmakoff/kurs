@@ -19,8 +19,8 @@
                 ?>
             </div>
             <div class="content">
-                <img src="images/person-faye.jpg" width="200"/>
-                <a href="write.php">Написать администратору</a>
+                <img src="images/hello_kitty_jpg.jpg" width="140" alt=""/><br>
+                <iframe src="index.html" width="500" height="400"></iframe> <!-- это фрейм внутри страницы -->
             </div>
 
         <div class="bottom" >
