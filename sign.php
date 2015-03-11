@@ -23,7 +23,7 @@
                 ?>
             </div>
             <div class="content">
-                <form action="sign_handler.php" method="GET">
+                <form action="sign_handler.php" method="post">
                     <p><label>ФИО: </label><input type="text" name="name"/></p>
                     <p><label>Логин: </label><input type="text" name="login"/></p>
                     <p><label>Пароль: </label><input type="password" name="pass"/></p>

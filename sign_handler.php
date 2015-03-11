@@ -1,5 +1,5 @@
 <?php
-echo $_GET["name"]."</br>";
-echo $_GET["login"]."</br>";
-echo $_GET["pass"]."</br>";
-echo $_GET["email"]."</br>";
+echo $_POST["name"]."</br>";
+echo $_POST["login"]."</br>";
+echo $_POST["pass"]."</br>";
+echo $_POST["email"]."</br>";
