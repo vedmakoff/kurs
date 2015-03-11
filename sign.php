@@ -23,7 +23,7 @@
                 ?>
             </div>
             <div class="content">
-                <form action="sign_handler.php" method="post">
+                <form action="sign_handler.php" method="post" enctype="multipart/form-data">
                     <p><label>ФИО: </label><input type="text" name="name"/></p>
                     <p><label>Логин: </label><input type="text" name="login" value="<?=$_COOKIE["login"]?>"/></p>
                     <p><label>Пароль: </label><input type="password" name="pass"/></p>
