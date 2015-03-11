@@ -2,7 +2,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Здравствуй мир</title>
+<title>
+   <? 
+       include ("title.php");
+   ?> 
+</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -29,8 +33,8 @@
             ?>
         </div>
     </div>
-    <? 
+<!--    <? 
         phpinfo();
-    ?>
+    ?>-->
 </body>
 </html>
