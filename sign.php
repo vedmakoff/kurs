@@ -25,7 +25,7 @@
             <div class="content">
                 <form action="sign_handler.php" method="post">
                     <p><label>ФИО: </label><input type="text" name="name"/></p>
-                    <p><label>Логин: </label><input type="text" name="login"/></p>
+                    <p><label>Логин: </label><input type="text" name="login" value="<?=$_COOKIE["login"]?>"/></p>
                     <p><label>Пароль: </label><input type="password" name="pass"/></p>
                     <p><label>E-mail: </label><input type="text" name="email"/></p>
                     <p><label>Аватар: </label><input type="file" name="file"/></p>
