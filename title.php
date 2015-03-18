@@ -15,6 +15,10 @@ if (strcmp($_SERVER["REQUEST_URI"], "/kurs/index.php")==0)
    {
    echo "Написать администратору";
    }
+   else if (strcmp($_SERVER["REQUEST_URI"], "/kurs/login.php")==0)
+   {
+   echo "Логин";
+   }
    else {
        die();
    }
