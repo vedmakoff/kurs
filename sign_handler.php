@@ -9,7 +9,7 @@ $user="root";
 $password="";
 $db="kurs";
 
-$mysqli=mysqli_connect($server, $user, $password, $db);
+$mysqli=new mysqli($server, $user, $password, $db);
 if (!$mysqli) {
 echo "Ошибка подключения к серверу MySQL ".  mysqli_connect_error();
 exit;
@@ -19,12 +19,12 @@ $login=$_POST["login"];
 $pass=$_POST["pass"];
 $email=$_POST["email"];
 
-$result = mysqli_query($mysqli, "INSERT INTO users (name,login,pass,email) VALUES ('$name','$login','$pass','$email')");
+$result = $mysqli->query("INSERT INTO users (name,login,pass,email) VALUES ('$name','$login','$pass','$email')");
         
 if (!$result) {
     printf("Error: %s\n", mysqli_error($mysqli));
 }
-mysqli_close($mysqli);
+$mysqli->mysqli();
 
 //setcookie("login", $_POST["login"], time()+3600);
 ////print_r ($_FILES["file"]);
