@@ -19,13 +19,27 @@ $login=$_POST["login"];
 $pass=$_POST["pass"];
 $email=$_POST["email"];
 
-$result = $mysqli->query("INSERT INTO users (name,login,pass,email) VALUES ('$name','$login','$pass','$email')");
-        
-if (!$result) {
-    printf("Error: %s\n", mysqli_error($mysqli));
-}
-$mysqli->mysqli();
 
+if ($stmt = $mysqli->prepare("INSERT INTO users (name,login,pass,email) VALUES (?,?,?,?)")) {
+
+    /* bind parameters for markers */
+    $stmt->bind_param("ssss",$name,$login,$pass,$email);
+
+    /* execute query */
+    $stmt->execute();
+
+   /* close statement */
+    $stmt->close();
+} 
+
+$mysqli->close();
+
+//$result = $mysqli->query("INSERT INTO users (name,login,pass,email) VALUES ('$name','$login','$pass','$email')");
+//        
+//if (!$result) {
+//    printf("Error: %s\n", mysqli_error($mysqli));
+//}
+//
 //setcookie("login", $_POST["login"], time()+3600);
 ////print_r ($_FILES["file"]);
 //echo $_FILES["file"]["tmp_name"]."</br>";
