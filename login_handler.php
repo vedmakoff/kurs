@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 echo $_POST["login"]."</br>";
 echo $_POST["pass"]."</br>";
 
@@ -15,7 +17,7 @@ exit;
 $login=$_POST["login"];
 $pass=$_POST["pass"];
 
-if ($stmt = $mysqli->prepare("SELECT name,email FROM users WHERE login=? and pass=?")) 
+if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and pass=?")) 
  {
     /* bind parameters for markers */
     $stmt->bind_param("ss",$login,$pass);
@@ -28,15 +30,18 @@ if ($stmt = $mysqli->prepare("SELECT name,email FROM users WHERE login=? and pas
 	if($stmt->num_rows!=0)
 	{
 		 /* bind result variables */
-		$stmt->bind_result($name,$email);
+		$stmt->bind_result($uid,$name,$email);
 		/* fetch value */
 		$stmt->fetch();
 	
-		echo "<br>"."Ваш ФИО: ".$name.", ваш e-mail: ".$email."<br>";
-	}
-	 else
-	 {
-		echo "<br>"."Нет такого пользователя"."<br>";
+		//echo "<br>"."Ваш ФИО: ".$name.", ваш e-mail: ".$email."<br>";
+               $_SESSION["name"]=$name;
+               $_SESSION["email"]=$email;
+               $_SESSION["user_id"]=$uid;
+        }
+        else
+	{
+            echo "<br>"."Нет такого пользователя"."<br>";
 	}
 
     /* close statement */
