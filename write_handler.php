@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $server="localhost";
 $user="root";
@@ -12,7 +13,7 @@ exit;
 }
 $t=$_POST["theme"];
 $m=$_POST["message"];
-$i=8;
+$i=$_SESSION["user_id"];
 $d=date("Y.m.d H:i:s");
   
 if($stmt = $mysqli->prepare("INSERT INTO messages (user_id,theme,message,times) VALUES (?,?,?,?)")) 
