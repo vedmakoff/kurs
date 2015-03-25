@@ -18,7 +18,7 @@ $name=$_POST["name"];
 $login=$_POST["login"];
 $pass=$_POST["pass"];
 $email=$_POST["email"];
-if ($stmt = $mysqli->prepare("SELECT name,email FROM users WHERE login=?")) 
+if ($stmt = $mysqli->prepare("SELECT сщгте (*) FROM users WHERE login=?")) 
  {
     
     /* bind parameters for markers */
@@ -34,23 +34,39 @@ if ($stmt = $mysqli->prepare("SELECT name,email FROM users WHERE login=?"))
     $stmt->close();
 } 
 if ($nr==0) {
-  if ($stmt = $mysqli->prepare("INSERT INTO users (name,login,pass,email) VALUES (?,?,?,?)")) {
+    $fullpath="";
+    if(strcmp($_FILES["file"]["tmp_name"],"")!=0)
+    {
+            $fullpath="images/".md5($login).".jpg";
+    }
+    if ($stmt = $mysqli->prepare("INSERT INTO users (name,login,pass,email,file) VALUES (?,?,?,?,?)")) {
 
     /* bind parameters for markers */
-    $stmt->bind_param("ssss",$name,$login,$pass,$email);
+    $stmt->bind_param("sssss",$name,$login,$pass,$email,$fullpath);
 
     /* execute query */
     $stmt->execute();
 
-   /* close statement */
+    /* close statement */
     $stmt->close();
-}   
+    } 
+    setcookie("login",$_POST["login"],time()+3600);
+
+    if(strcmp($fullpath,"")!=0)
+    {
+            move_uploaded_file($_FILES["file"]["tmp_name"],$fullpath);
+    }
 }
  else {
     echo 'Такой пользователь уже зарегистрирован!';    
 }
 
+
+
+
 $mysqli->close();
+
+
 
 //$result = $mysqli->query("INSERT INTO users (name,login,pass,email) VALUES ('$name','$login','$pass','$email')");
 //        
