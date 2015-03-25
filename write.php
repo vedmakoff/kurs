@@ -21,17 +21,17 @@
                 ?>
             </div>
             <div class="content">
-                <form>
+                <form method="POST" action="write_handler.php" enctype="multipart/form-data">
 
                     Тема обращения: <br>
-                    <select>
+                    <select name="theme">
                         <option>Неправильно отображаются страницы</option>
                         <option>Заявление о случаях нарушений правил пользователями</option>
                         <option>Выражение благодарности администрации</option>
                     </select>
                     <hr/>
                     Сообщение: <br>
-                    <textarea cols="70" rows="7">Введите текст сообщения тут</textarea>
+                    <textarea cols="70" rows="7" name="message">Введите текст сообщения тут</textarea>
                     <input type="submit" value="Отправить" />    
                 </form>
             </div>
