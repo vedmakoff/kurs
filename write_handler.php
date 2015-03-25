@@ -1,16 +1,24 @@
 <?php
 
-$mysqli= new mysqli("localhost", "root", "", "kurs");
-if($mysqli==0) 
-{
-	printf("Connect failed: %s\n", mysqli_connect_error());
-	exit;
+$server="localhost";
+$user="root";
+$password="";
+$db="kurs";
+
+$mysqli=new mysqli($server, $user, $password, $db);
+if ($mysqli==0) {
+echo "Ошибка подключения к серверу MySQL ".  mysqli_connect_error();
+exit;
 }
+$t=$_POST["theme"];
+$m=$_POST["message"];
+$i=1;
+$d=date("Y.m.d H:i:s");
   
-if($stmt = $mysqli->prepare("INSERT INTO users (name,login,pass,email,file) VALUES (?,?,?,?,?)")) 
+if($stmt = $mysqli->prepare("INSERT INTO messages (user_id,theme,message,times) VALUES (?,?,?,?)")) 
 {
 	/* bind parameters for markers */
-	$stmt->bind_param("sssss", $name,$login,$pass,$email,$fullpath);
+	$stmt->bind_param("ssss", $i,$t,$m,$d);
 	/* execute query */
 	$stmt->execute();
 	/* close statement */
