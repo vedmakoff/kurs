@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-echo $_POST["login"]."</br>";
-echo $_POST["pass"]."</br>";
-
 $server="localhost";
 $user="root";
 $password="";
@@ -34,7 +31,7 @@ if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and 
 		/* fetch value */
 		$stmt->fetch();
 	
-		echo "<br>"."Ваш ФИО: ".$name.", ваш e-mail: ".$email."<br>"."ваш ID: ".$uid;
+		echo "<br>"."Вы вошли по именем: ".$name."<br>Ваш e-mail: ".$email."<br>";
                $_SESSION["name"]=$name;
                $_SESSION["email"]=$email;
                $_SESSION["user_id"]=$uid;
@@ -48,3 +45,16 @@ if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and 
     $stmt->close();
 } 
  $mysqli->close();
+// так получаем URL, с которого пришёл посетитель  
+$back = $_SERVER['HTTP_REFERER']; // для справки, не обязательно создавать переменную
+
+// Теперь создаём страницу, пересылающую
+// в meta теге на предыдущую
+echo "
+<html>
+  <head>
+   <meta http-equiv='Refresh' content='5; URL=index.php'>
+  </head>
+</html>";
+// content='5; число указывает на количество секунд перед возвращением назад
+// необходимых для прочтения какого-то сообщения.

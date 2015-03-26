@@ -15,11 +15,6 @@ $t=$_POST["theme"];
 $m=$_POST["message"];
 $i=$_SESSION["user_id"];
 $d=date("Y.m.d H:i:s");
-echo $t."<br>"; 
-echo $m."<br>";  
-echo $i."<br>";  
-echo $d."<br>";  
-
 // вставка в таблицу
 if ($stmt = $mysqli->prepare("INSERT INTO `messages`(`user_id`,`theme`,`message`,`times`) VALUES(?,?,?,?)"))
 {
@@ -29,7 +24,23 @@ if ($stmt = $mysqli->prepare("INSERT INTO `messages`(`user_id`,`theme`,`message`
     // это возвратит нам id вставленной записи
     $row_id = $mysqli->insert_id;
     // выведем этот id
-    echo $row_id;
+    echo "Номер вашего обращения: <strong>".$row_id."</strong><br>";
+    echo "Через несколько секунд вы будете перенаправлены на предыдущую страницу <br>";
+    echo "Спасибо за обращение";
+    
 }
-
 $mysqli->close();
+
+// так получаем URL, с которого пришёл посетитель  
+$back = $_SERVER['HTTP_REFERER']; // для справки, не обязательно создавать переменную
+
+// Теперь создаём страницу, пересылающую
+// в meta теге на предыдущую
+echo "
+<html>
+  <head>
+   <meta http-equiv='Refresh' content='5; URL=".$_SERVER['HTTP_REFERER']."'>
+  </head>
+</html>";
+// content='5; число указывает на количество секунд перед возвращением назад
+// необходимых для прочтения какого-то сообщения.

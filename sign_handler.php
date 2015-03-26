@@ -1,9 +1,4 @@
 <?php
-echo $_POST["name"]."</br>";
-echo $_POST["login"]."</br>";
-echo $_POST["pass"]."</br>";
-echo $_POST["email"]."</br>";
-
 $server="localhost";
 $user="root";
 $password="";
@@ -57,24 +52,34 @@ if ($nr==0) {
     }
 }
  else {
-    echo 'Такой пользователь уже зарегистрирован!';    
+    echo 'Такой пользователь уже зарегистрирован! Попробуйте придумать другое имя пользователя.'; 
+    // так получаем URL, с которого пришёл посетитель  
+    $back = $_SERVER['HTTP_REFERER']; // для справки, не обязательно создавать переменную
+
+    // Теперь создаём страницу, пересылающую
+    // в meta теге на предыдущую
+    echo "
+    <html>
+      <head>
+       <meta http-equiv='Refresh' content='5; URL=".$_SERVER['HTTP_REFERER']."'>
+      </head>
+    </html>";
+    // content='5; число указывает на количество секунд перед возвращением назад
+    // необходимых для прочтения какого-то сообщения.
 }
 
-
-
-
 $mysqli->close();
+echo "Поздравляем с регистрацией на портале";
+// так получаем URL, с которого пришёл посетитель  
+$back = $_SERVER['HTTP_REFERER']; // для справки, не обязательно создавать переменную
 
-
-
-//$result = $mysqli->query("INSERT INTO users (name,login,pass,email) VALUES ('$name','$login','$pass','$email')");
-//        
-//if (!$result) {
-//    printf("Error: %s\n", mysqli_error($mysqli));
-//}
-//
-//setcookie("login", $_POST["login"], time()+3600);
-////print_r ($_FILES["file"]);
-//echo $_FILES["file"]["tmp_name"]."</br>";
-//echo $_FILES["file"]["name"]."</br>";
-//move_uploaded_file($_FILES["file"]["tmp_name"], "images/".$_FILES["file"]["name"]);
+// Теперь создаём страницу, пересылающую
+// в meta теге на предыдущую
+echo "
+<html>
+  <head>
+   <meta http-equiv='Refresh' content='5; URL=index.php'>
+  </head>
+</html>";
+// content='5; число указывает на количество секунд перед возвращением назад
+// необходимых для прочтения какого-то сообщения.

@@ -8,6 +8,7 @@
    ?> 
 </title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="kurs/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
