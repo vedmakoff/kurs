@@ -18,9 +18,8 @@ $name=$_POST["name"];
 $login=$_POST["login"];
 $pass=$_POST["pass"];
 $email=$_POST["email"];
-if ($stmt = $mysqli->prepare("SELECT сщгте (*) FROM users WHERE login=?")) 
+if ($stmt = $mysqli->prepare("SELECT count(*) FROM users WHERE login=?")) 
  {
-    
     /* bind parameters for markers */
     $stmt->bind_param("s",$login);
     /* execute query */

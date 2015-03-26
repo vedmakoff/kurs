@@ -15,15 +15,21 @@ $t=$_POST["theme"];
 $m=$_POST["message"];
 $i=$_SESSION["user_id"];
 $d=date("Y.m.d H:i:s");
-  
-if($stmt = $mysqli->prepare("INSERT INTO messages (user_id,theme,message,times) VALUES (?,?,?,?)")) 
+echo $t."<br>"; 
+echo $m."<br>";  
+echo $i."<br>";  
+echo $d."<br>";  
+
+// вставка в таблицу
+if ($stmt = $mysqli->prepare("INSERT INTO `messages`(`user_id`,`theme`,`message`,`times`) VALUES(?,?,?,?)"))
 {
-	/* bind parameters for markers */
-	$stmt->bind_param("ssss", $i,$t,$m,$d);
-	/* execute query */
-	$stmt->execute();
-	/* close statement */
-	$stmt->close();
-} 
+    $stmt->bind_param("isss",$i,$t,$m,$d);
+    $stmt->execute();
+    $stmt->close();
+    // это возвратит нам id вставленной записи
+    $row_id = $mysqli->insert_id;
+    // выведем этот id
+    echo $row_id;
+}
 
 $mysqli->close();

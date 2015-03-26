@@ -34,7 +34,7 @@ if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and 
 		/* fetch value */
 		$stmt->fetch();
 	
-		//echo "<br>"."Ваш ФИО: ".$name.", ваш e-mail: ".$email."<br>";
+		echo "<br>"."Ваш ФИО: ".$name.", ваш e-mail: ".$email."<br>"."ваш ID: ".$uid;
                $_SESSION["name"]=$name;
                $_SESSION["email"]=$email;
                $_SESSION["user_id"]=$uid;
