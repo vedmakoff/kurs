@@ -22,6 +22,10 @@
                 ?>
             </div>
             <div class="content">
+                <?
+                echo $_SESSION["message"];
+                $_SESSION["message"]="";
+                ?>
                 <form method="POST" action="write_handler.php" enctype="multipart/form-data">
 
                     Тема обращения: <br>

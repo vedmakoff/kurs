@@ -19,6 +19,14 @@ if (strcmp($_SERVER["REQUEST_URI"], "/kurs/index.php")==0)
    {
    echo "Логин";
    }
+   else if (strcmp($_SERVER["REQUEST_URI"], "/kurs/logaut.php")==0)
+   {
+   echo "Выход";
+   }
+   else if (strcmp($_SERVER["REQUEST_URI"], "/kurs/show.php")==0)
+   {
+   echo "Сообщения";
+   }
    else {
        die();
    }

@@ -27,20 +27,7 @@ if ($stmt = $mysqli->prepare("INSERT INTO `messages`(`user_id`,`theme`,`message`
     echo "Номер вашего обращения: <strong>".$row_id."</strong><br>";
     echo "Через несколько секунд вы будете перенаправлены на предыдущую страницу <br>";
     echo "Спасибо за обращение";
-    
 }
 $mysqli->close();
-
-// так получаем URL, с которого пришёл посетитель  
-$back = $_SERVER['HTTP_REFERER']; // для справки, не обязательно создавать переменную
-
-// Теперь создаём страницу, пересылающую
-// в meta теге на предыдущую
-echo "
-<html>
-  <head>
-   <meta http-equiv='Refresh' content='5; URL=".$_SERVER['HTTP_REFERER']."'>
-  </head>
-</html>";
-// content='5; число указывает на количество секунд перед возвращением назад
-// необходимых для прочтения какого-то сообщения.
+$_SESSION["message"]="<br>"."Your message successfully sent!"."<br>";
+header("Location: write.php");

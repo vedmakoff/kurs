@@ -12,7 +12,7 @@ echo "Ошибка подключения к серверу MySQL ".  mysqli_con
 exit;
 }
 $login=$_POST["login"];
-$pass=$_POST["pass"];
+$pass=md5($_POST["pass"]);
 
 if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and pass=?")) 
  {
@@ -26,15 +26,17 @@ if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and 
 	
 	if($stmt->num_rows!=0)
 	{
-		 /* bind result variables */
-		$stmt->bind_result($uid,$name,$email);
-		/* fetch value */
-		$stmt->fetch();
-	
-		echo "<br>"."Вы вошли по именем: ".$name."<br>Ваш e-mail: ".$email."<br>";
-               $_SESSION["name"]=$name;
-               $_SESSION["email"]=$email;
-               $_SESSION["user_id"]=$uid;
+            /* bind result variables */
+            $stmt->bind_result($uid,$name,$email);
+            /* fetch value */
+            $stmt->fetch();
+
+            echo "<br>"."Вы вошли по именем: ".$name."<br>Ваш e-mail: ".$email."<br>";
+            $_SESSION["name"]=$name;
+            $_SESSION["email"]=$email;
+            $_SESSION["user_id"]=$uid;
+            // по выполнении переходим на индекс.пхп
+            header("Location: index.php");
         }
         else
 	{
@@ -45,16 +47,19 @@ if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and 
     $stmt->close();
 } 
  $mysqli->close();
-// так получаем URL, с которого пришёл посетитель  
-$back = $_SERVER['HTTP_REFERER']; // для справки, не обязательно создавать переменную
 
-// Теперь создаём страницу, пересылающую
-// в meta теге на предыдущую
-echo "
-<html>
-  <head>
-   <meta http-equiv='Refresh' content='5; URL=index.php'>
-  </head>
-</html>";
-// content='5; число указывает на количество секунд перед возвращением назад
-// необходимых для прочтения какого-то сообщения.
+
+
+//// так получаем URL, с которого пришёл посетитель  
+//$back = $_SERVER['HTTP_REFERER']; // для справки, не обязательно создавать переменную
+//
+//// Теперь создаём страницу, пересылающую
+//// в meta теге на предыдущую
+//echo "
+//<html>
+//  <head>
+//   <meta http-equiv='Refresh' content='5; URL=index.php'>
+//  </head>
+//</html>";
+//// content='5; число указывает на количество секунд перед возвращением назад
+//// необходимых для прочтения какого-то сообщения.
