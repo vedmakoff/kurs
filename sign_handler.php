@@ -1,14 +1,6 @@
 <?php
-$server="localhost";
-$user="root";
-$password="";
-$db="kurs";
+include ("dbaccess.php");
 
-$mysqli=new mysqli($server, $user, $password, $db);
-if (!$mysqli) {
-echo "Ошибка подключения к серверу MySQL ".  mysqli_connect_error();
-exit;
-}
 $name=$_POST["name"];
 $login=$_POST["login"];
 $pass=  md5($_POST["pass"]);

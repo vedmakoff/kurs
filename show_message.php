@@ -1,14 +1,6 @@
 <?php
-$server="localhost";
-$user="root";
-$password="";
-$db="kurs";
+include ("dbaccess.php");
 
-$mysqli=new mysqli($server, $user, $password, $db);
-if ($mysqli==0) {
-echo "Ошибка подключения к серверу MySQL ".  mysqli_connect_error();
-exit;
-}
 if ($stmt = $mysqli->prepare("SELECT messages.user_id,messages.theme,messages.message,messages.times,users.name FROM messages JOIN users ON messages.user_id=users.id ORDER BY messages.times DESC")) 
 {
     $stmt->execute();
