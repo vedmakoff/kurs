@@ -24,6 +24,10 @@
                 ?>
             </div>
             <div class="content">
+                <?
+                echo $_SESSION["mess"];
+                $_SESSION["mess"]="";
+                ?>
                 <img src="images/person-faye.jpg" width="200"/>
                 <a href="write.php">Написать администратору</a>
             </div>

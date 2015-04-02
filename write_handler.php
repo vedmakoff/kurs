@@ -21,5 +21,5 @@ if ($stmt = $mysqli->prepare("INSERT INTO `messages`(`user_id`,`theme`,`message`
     echo "Спасибо за обращение";
 }
 $mysqli->close();
-$_SESSION["message"]="<br>"."Your message successfully sent!"."<br>";
+$_SESSION["mess"]="<br>"."Your message successfully sent!"."<br>";
 header("Location: write.php");

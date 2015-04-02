@@ -1,16 +1,19 @@
 <?php
+session_start();
+
 include ("dbaccess.php");
 
 $name=$_POST["name"];
 $login=$_POST["login"];
-$pass=  md5($_POST["pass"]);
+$pass=md5($_POST["pass"]);
 $email=$_POST["email"];
-$captcha=$_POST["captcha"];
+$user_phrase=$_POST["phrase"];
 
-if (strcmp($captcha,$_SESSION["phrase"])!=0){
-    $_SESSION["message"]="<br>"."Неправильная ключевая фраза!"."<br>";
-    header("Location: sign.php");
-    die();
+if(strcmp($user_phrase,$_SESSION["phrase"])!=0)
+{
+	$_SESSION["mess"]="<br>"."Неправильная ключевая фраза!"."<br>";
+	header("Location: sign.php");
+	die();
 }
 if ($stmt = $mysqli->prepare("SELECT count(*) FROM users WHERE login=?")) 
  {
@@ -49,14 +52,14 @@ if ($nr==0) {
     {
             move_uploaded_file($_FILES["file"]["tmp_name"],$fullpath);
     }
-    $_SESSION["message"]="<br>"."Зарегистрировались"."<br>";
+    $_SESSION["mess"]="<br>"."Авторизируйтесь"."<br>";
     //переход на страницу входа
-    header("location: login.php");
+    header("Location: login.php");
 }
  else {
-     $_SESSION["message"]="<br>"."Логин уже занят"."<br>";
+    $_SESSION["mess"]="<br>"."Логин уже занят"."<br>";
     //возврат на страницу регистрации
-    header("location: sign.php");
+    header("Location: sign.php");
 }
 
 $mysqli->close();

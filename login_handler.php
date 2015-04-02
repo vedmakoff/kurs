@@ -23,16 +23,19 @@ if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and 
             /* fetch value */
             $stmt->fetch();
 
-            echo "<br>"."Вы вошли по именем: ".$name."<br>Ваш e-mail: ".$email."<br>";
             $_SESSION["name"]=$name;
             $_SESSION["email"]=$email;
             $_SESSION["user_id"]=$uid;
+            
+            $_SESSION["mess"]="<br>"."Успешная авторизация"."<br>";
+
             // по выполнении переходим на индекс.пхп
             header("Location: index.php");
         }
         else
 	{
-            echo "<br>"."Нет такого пользователя"."<br>";
+            $_SESSION["mess"]="<br>"."Нет такого пользователя"."<br>";
+            header("Location: login.php");
 	}
 
     /* close statement */

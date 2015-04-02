@@ -23,8 +23,8 @@
             </div>
             <div class="content">
                 <?
-                echo $_SESSION["message"];
-                $_SESSION["message"]="";
+                echo $_SESSION["mess"];
+                $_SESSION["mess"]="";
                 ?>
                 <form method="POST" action="write_handler.php" enctype="multipart/form-data">
 
