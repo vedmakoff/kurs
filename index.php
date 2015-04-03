@@ -5,16 +5,16 @@
 <title>
    <? 
        include ("title.php");
-   ?> 
+   ?>
 </title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="shortcut icon" href="kurs/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="wrap">
         <div class="header">
-            <?
+            <?php
                 include ("header.php");
             ?>
         </div>
