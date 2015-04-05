@@ -1,5 +1,5 @@
 # Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
-RewriteBase /
 php_flag display_errors on
 php_flag output_buffering on
 AddDefaultCharset UTF-8
+PHP_VALUE default_charset utf-8
