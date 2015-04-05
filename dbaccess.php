@@ -1,8 +1,8 @@
 <?php
-$server="mysql.hostinger.ru";
-$user="u380806894_vik";
+$server="localhost";
+$user="root";
 $password="682970";
-$db="u380806894_kurs";
+$db="kurs";
 
 $mysqli=new mysqli($server, $user, $password, $db);
 if ($mysqli==0) {
