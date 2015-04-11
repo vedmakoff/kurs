@@ -9,7 +9,7 @@ if ($stmt = $mysqli->prepare("SELECT messages.user_id,messages.theme,messages.me
    
     while ($stmt->fetch())
     {
-        echo "<b>Сообщение от ".$name." (".$times.")<br>".$theme."</b><br>";
+        echo "Сообщение от <b>".$name."</b> (".$times.")<br><b>".$theme."</b><br>";
         echo $message;
         echo "<br><hr><br>";
     }

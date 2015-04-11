@@ -5,6 +5,7 @@ include ("dbaccess.php");
 
 $login=$_POST["login"];
 $pass=md5($_POST["pass"]);
+$_SESSION["login"]=$login;
 
 if ($stmt = $mysqli->prepare("SELECT id,name,email FROM users WHERE login=? and pass=?")) 
  {

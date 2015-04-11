@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-    <? 
+    <?php 
        include ("title.php");
    ?> 
 </title>
@@ -14,17 +14,17 @@
 <body>
     <div class="wrap">
         <div class="header">
-            <?
+            <?php
                 include ("header.php");
             ?>
         </div>
             <div class="menu">
-                <?
+                <?php
                     include ("menu.php");
                 ?>
             </div>
             <div class="content">
-                <?
+                <?php
                 echo $_SESSION["mess"];
                 $_SESSION["mess"]="";
                 ?>
@@ -36,7 +36,7 @@
             </div>
 
         <div class="bottom" >
-            <?
+            <?php
                 include ("bottom.php");
             ?>
         </div>
